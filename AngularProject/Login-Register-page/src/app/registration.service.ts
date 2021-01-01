@@ -32,8 +32,8 @@ export class RegistrationService {
     
 
      /* Temporary Holding of Credentials*/
-   this.usertemp.emailid="cgchaitanya4@gmail.com";
-   this.usertemp.password="test123";
+   this.usertemp.emailid="admin@admin.admin";
+   this.usertemp.password="admin";
 
    /*When loginfromremote fn is called from login component,
     an instance of user containg reponse from form will be passed here, 
