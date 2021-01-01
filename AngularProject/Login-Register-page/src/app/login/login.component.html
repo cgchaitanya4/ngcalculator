@@ -23,7 +23,7 @@
       <div class="form-group">
             <div><small class="login-error"><b>{{errormsg}}</b></small></div>
             <label for="email">Email:</label>
-            <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)] = "user.emailid" required pattern ="^\w+@[a-zA-Z_]+?\.[a-zA-Z_]{2,3}$" required 
+            <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)] = "user.emailid" required pattern ="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required 
             #email = "ngModel"
              [class.is-invalid]= "email.invalid && email.touched"
              >

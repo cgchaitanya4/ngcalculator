@@ -10,23 +10,28 @@ export class RegistrationService {
   /* Temp instance of User class*/
   usertemp = new User();
   usert = new User();
+  public arr:User[]=[];
   constructor() {}
+  clk = 1;
 
+  
   public registerusertoremote(user: User)
   {
     this.usert.id=1;
-    var arr:User[]=[];
-    for (let index = 0; index < this.usert.id; index++) {
-    arr[index]=user;
-   
+    this.usert.emailid=user.emailid;
+    this.usert.password=user.password;
+    for (let index = 0; index < this.clk; index++) {
+    this.arr[index]=user;
   } 
-  this.usert.id++;
-  return arr;
+    this.clk++;
+    this.usert.id++;
+    return this.arr;
   }
 
   public loginUserFromRemote(user: User){
     
-    /* Temporary Holding of Credentials*/
+
+     /* Temporary Holding of Credentials*/
    this.usertemp.emailid="cgchaitanya4@gmail.com";
    this.usertemp.password="test123";
 
@@ -35,7 +40,7 @@ export class RegistrationService {
     then it will verify values with localtemp instance*/
     
 
-   if ((user.emailid==this.usertemp.emailid) && user.password==this.usertemp.password) {
+   if ((user.emailid==(this.usertemp.emailid || this.usert.emailid)) && (user.password==(this.usertemp.password || this.usert.password))  ) {
         return true;
    }
     return false; 

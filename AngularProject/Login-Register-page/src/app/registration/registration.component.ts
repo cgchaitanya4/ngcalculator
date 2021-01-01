@@ -12,6 +12,7 @@ import { RegistrationService } from '../registration.service';
 export class RegistrationComponent implements OnInit {
   ruser = new User();
   constructor( private _service:RegistrationService ,private _router: Router) {}
+  registereds = "";
 
   ngOnInit(): void {
   }
@@ -21,11 +22,13 @@ registeruser(){
   console.log(this.ruser.id);
   console.log(this.ruser.password);
   console.log(this.ruser.username);
+  this.registereds = "Registered Successfully!";
   for (let index = 0; index < arr.length; index++) { 
     console.log(arr[index]);
     
   }
-  
+  this._router.navigate(['/registersuccess']);
+
 }
 
 }

@@ -16,11 +16,12 @@
     <div class="Registration-container">
     <h2><b>New User Registration</b></h2>
     <p>Enter your Details Correctly</p>
+    <small class="text-danger"><b>{{registereds}}</b></small>
     <form #registrationinform='ngForm'  (ngSubmit)= "registeruser()" >                               
         <div class="form-group">
             <label for="email">Email Id:</label>
             <input type="Name" class="form-control" id="email" placeholder="Enter Email Id" name="email" required [(ngModel)]= "ruser.emailid" 
-           required pattern ="^\w+@[a-zA-Z_]+?\.[a-zA-Z_]{2,3}$" required 
+           required pattern ="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required 
             #email = "ngModel"
              [class.is-invalid]= "email.invalid && email.touched">
              <div *ngIf ="email.errors && (email.invalid && email.touched)">
@@ -60,7 +61,7 @@
           <div class="invalid-feedback">Check this checkbox to continue.</div>
         </label>
       </div>
-      <div class="submit-button"><button [disabled] ="registrationinform.form.invalid" type="submit" class="btn btn-primary">Register</button></div>
+      <div class="submit-button"><button [disabled] ="registrationinform.form.invalid"  type="submit" class="btn btn-primary">Register</button></div>
     </form>
     <div class="existing-user"><a  [routerLink]="['/Login']"><p>Exisiting User? Login Here</p></a></div>
   </div>
